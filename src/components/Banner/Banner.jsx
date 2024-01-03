@@ -2,7 +2,7 @@ import { Container, Typography, makeStyles } from "@material-ui/core";
 import React from "react";
 import Carousel from "./Carousel";
 
-const Banner = () => {
+function Banner () {
 
     const useStyles = makeStyles(() =>({
         banner: {
