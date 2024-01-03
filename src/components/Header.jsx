@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import { CryptoState } from "../provider/ContextProvider";
 
 const Header = () => {
-
     const useStyles = makeStyles(() => ({
         title: {
             flex: 1,

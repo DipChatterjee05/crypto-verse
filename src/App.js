@@ -7,7 +7,6 @@ import { makeStyles } from "@material-ui/core";
 import ContextProvider from "./provider/ContextProvider";
 
 function App() {
-
   const useStyles = makeStyles(() => ({
     App: {
       backgroundColor: "#14161a",

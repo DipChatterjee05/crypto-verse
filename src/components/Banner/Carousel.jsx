@@ -8,7 +8,6 @@ import { Link } from "react-router-dom";
 import { numberWithCommas } from "../CoinsTable";
 
 const Carousel = () => {
-    
     const [trending, setTrending] = useState([]);
     const { currency, symbol } = CryptoState();
 
@@ -29,7 +28,6 @@ const Carousel = () => {
     }));
 
     const classes = useStyles();
-
 
     const fetchTrendingCoins = async () => {
         try {
@@ -56,7 +54,6 @@ const Carousel = () => {
 
     const items = trending.map((coin) => {
         let profit = coin.price_change_percentage_24h >= 0;
-
         return (
             <Link to={`/coins/${coin.id}`} className={classes.carouselItem}>
                 <img src={coin?.image} alt={coin.name} height="80" style={{ marginBottom: 10 }} />
