@@ -1,5 +1,5 @@
-import { Container, Typography, makeStyles } from "@material-ui/core";
 import React from "react";
+import { Container, Typography, makeStyles } from "@material-ui/core";
 import Carousel from "./Carousel";
 
 function Banner() {

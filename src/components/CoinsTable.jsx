@@ -4,7 +4,6 @@ import { CoinList } from "../config/api";
 import { CryptoState } from "../provider/ContextProvider";
 import { makeStyles } from "@material-ui/core/styles";
 import { Container, LinearProgress, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField, ThemeProvider, Typography, createTheme } from "@material-ui/core";
-import { useNavigate } from "react-router-dom";
 import { Pagination } from "@material-ui/lab";
 
 export function numberWithCommas(x) {
@@ -17,7 +16,6 @@ function CoinsTable() {
     const [search, setSearch] = useState("");
     const [page, setPage] = useState(1);
     const { currency, symbol } = CryptoState();
-    const navigate = useNavigate();
 
     const useStyles = makeStyles({
         row: {
@@ -42,7 +40,6 @@ function CoinsTable() {
             setLoading(true);
             const { data } = await axios.get(CoinList(currency));
             setCoins(data);
-            console.log(data);
         } catch (error) {
             console.log("error", error);
         } finally {
@@ -50,10 +47,10 @@ function CoinsTable() {
         }
     };
 
-    // useEffect(() => {
-    //      fetchCoins();
-    //      // eslint-disable-next-line
-    // }, [currency]);
+    useEffect(() => {
+         fetchCoins();
+         // eslint-disable-next-line
+    }, [currency]);
 
     const darkTheme = createTheme({
         palette: {
@@ -98,7 +95,7 @@ function CoinsTable() {
                                 {handleSearch().slice((page - 1) * 10, (page - 1) * 10 + 10).map((row) => {
                                     const profit = row.price_change_percentage_24h > 0;
                                     return (
-                                        <TableRow onClick={() => navigate(`/coins/${row.id}`)} className={classes.row} key={row.name}>
+                                        <TableRow className={classes.row} key={row.name}>
                                             <TableCell component="th" scope="row" style={{ display: "flex", gap: 15 }}>
                                                 <img src={row?.image} alt={row.name} height="50" style={{ marginBottom: 10 }} />
                                                 <div style={{ display: "flex", flexDirection: "column" }}>
